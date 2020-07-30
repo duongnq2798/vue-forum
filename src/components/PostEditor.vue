@@ -12,7 +12,7 @@
         ></textarea>
     </div>
     <div class="form-actions">
-      <button class="btn-blue">Submit post</button>
+      <button class="btn-blue">Submit Post</button>
     </div>
   </form>
 </template>
