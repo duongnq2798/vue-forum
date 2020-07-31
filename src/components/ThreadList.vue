@@ -15,7 +15,6 @@ export default {
   components: {
     ThreadListItem
   },
-
   props: {
     threads: {
       required: true,
