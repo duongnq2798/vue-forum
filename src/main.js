@@ -3,7 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+// Đăng lý Global base Component
+import AppDate from '@/components/AppDate'
+Vue.component('AppDate', AppDate)
+// End Global base Component
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
