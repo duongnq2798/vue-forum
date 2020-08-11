@@ -1,18 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PageHome from '@/pages/PageHome'
-import PageThreadShow from '@/pages/PageThreadShow'
+import Home from '@/pages/PageHome'
+import ThreadShow from '@/pages/PageThreadShow'
+import ThreadCreate from '@/pages/PageThreadCreate'
+import ThreadEdit from '@/pages/PageThreadEdit'
+import Category from '@/pages/PageCategory'
 import Forum from '@/pages/PageForum'
+import Profile from '@/pages/PageProfile'
 import NotFound from '@/pages/PageNotFound'
-
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'PageHome',
-      component: PageHome
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/category/:id',
+      name: 'Category',
+      component: Category,
+      props: true
     },
     {
       path: '/forum/:id',
@@ -21,10 +29,34 @@ export default new Router({
       props: true
     },
     {
-      path: '/thread/show/:id',
-      name: 'PageThreadShow',
-      component: PageThreadShow,
+      path: '/thread/create/:forumId',
+      name: 'ThreadCreate',
+      component: ThreadCreate,
       props: true
+    },
+    {
+      path: '/thread/:id',
+      name: 'ThreadShow',
+      component: ThreadShow,
+      props: true
+    },
+    {
+      path: '/thread/:id/edit',
+      name: 'ThreadEdit',
+      component: ThreadEdit,
+      props: true
+    },
+    {
+      path: '/me',
+      name: 'Profile',
+      component: Profile,
+      props: true
+    },
+    {
+      path: '/me/edit',
+      name: 'ProfileEdit',
+      component: Profile,
+      props: {edit: true}
     },
     {
       path: '*',

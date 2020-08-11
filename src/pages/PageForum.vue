@@ -6,19 +6,20 @@
           <h1>{{forum.name}}</h1>
           <p class="text-lead">{{forum.description}}</p>
         </div>
-        <a href="new-thread.html" class="btn-green btn-small">Start a thread</a>
+        <router-link
+          :to="{name: 'ThreadCreate', params: {forumId: this.forum['.key']}}"
+          class="btn-green btn-small">
+          Start a thread
+        </router-link>
       </div>
     </div>
-
     <div class="col-full push-top">
       <ThreadList :threads="threads"/>
     </div>
   </div>
 </template>
-
 <script>
     import ThreadList from '@/components/ThreadList'
-    import sourceData from '@/data'
     export default {
       components: {
         ThreadList
@@ -31,18 +32,17 @@
       },
       computed: {
         forum () {
-          return sourceData.forums[this.id]
+          return this.$store.state.forums[this.id]
         },
         threads () {
-          return Object.values(sourceData.threads)
+          return Object.values(this.$store.state.threads)
             .filter(thread => thread.forumId === this.id)
         }
       }
     }
 </script>
-
 <style scoped>
-  .forum-wrapper {
-    width: 100%;
-  }
+.forum-wrapper {
+  width: 100%;
+}
 </style>
